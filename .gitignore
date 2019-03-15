@@ -1,0 +1,11 @@
+.ccls-*
+*.json
+main
+test
+unittest
+*.o
+!test/
+!unittest/
+moc
+*.pro.user
+ui_*
