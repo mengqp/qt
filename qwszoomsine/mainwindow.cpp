@@ -2,7 +2,7 @@
 #include "ui_mainwindow.h"
 #include <QPainter>
 #include <QPen>
-#include "../../../cc/src/sinewave/sinewave.h"
+#include "../../cc/sinewave/src/sinewave.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow)
