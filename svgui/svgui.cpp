@@ -22,6 +22,7 @@ Svgui::~Svgui(void)
 bool Svgui::init(void)
 {
     this->setGeometry(0, 0, 400, 480);
+    this->setWindowFlags( Qt::FramelessWindowHint );
 
     m_renderer = new QSvgRenderer(QString("ui.svg"), this);
 

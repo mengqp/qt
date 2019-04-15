@@ -14,9 +14,7 @@ int main( int argc, char* argv[] )
 
     Svgui w;
 
-	// w.setFixedSize( 400, 480 );
-
-	w.setScaleSize( 800 );
+	w.setScaleSize( 400 );
     w.show();
 	w.setLine(0, 0, 10);
 	w.setLine(0, 1, 30);
@@ -25,8 +23,6 @@ int main( int argc, char* argv[] )
 	w.setLine(1, 0, 60);
 	w.setLine(1, 1, 75);
 	w.setLine(1, 2, 90);
-
-    // w.showFullScreen();
 
     return a.exec();
 }
