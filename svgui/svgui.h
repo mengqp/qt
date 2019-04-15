@@ -15,7 +15,7 @@
 #include <QColor>
 
 // 三相电编号
-enum THREE_PHASE_INDEX{
+enum PHASE_INDEX{
 	PHASE_A = 0,
 	PHASE_B,
 	PHASE_C,
@@ -23,7 +23,7 @@ enum THREE_PHASE_INDEX{
 };
 
 // 三相电类型
-enum THREE_PHASE_TYPE{
+enum PHASE_TYPE{
 	PHASE_U = 0,
 	PHASE_I,
 	PHASE_TYPE_SIZE,
@@ -46,10 +46,19 @@ public:
 public:
 	// 设置ABC 三相顔色
 	void setColor( int index, QColor color );
+	// 通过角度设置 三相线
+	void setLine( int type, int index, double angle );
+	// 按比例设置窗口大小
+	void setScaleSize( int width );
 
 private:
 	// 画提示的ABC 标注说明
 	void drawMark( QPainter *pPainter );
+
+	// 窗口改变大小时
+	void sizeChange( void );
+	// 画线条
+	void drawLines( QPainter *pPainter );
 
 private:
 	QSvgRenderer *m_renderer;
@@ -57,9 +66,12 @@ private:
 	int m_markY[PHASE_INDEX_SIZE];
 	int m_markXb[PHASE_TYPE_SIZE];
 	int m_markXe[PHASE_TYPE_SIZE];
+	int m_penWidth[PHASE_TYPE_SIZE];
 
-	int m_penWidthU;
-	int m_penWidthI;
+	QSize m_sizeOld;
+
+	QLine m_line[PHASE_TYPE_SIZE][PHASE_INDEX_SIZE];
+	double m_angle[PHASE_TYPE_SIZE][PHASE_INDEX_SIZE];
 
 };
 
