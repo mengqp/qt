@@ -14,12 +14,19 @@
 #include <QSvgRenderer>
 #include <QColor>
 
-// 三相电
-enum THREE_PHASE{
+// 三相电编号
+enum THREE_PHASE_INDEX{
 	PHASE_A = 0,
 	PHASE_B,
 	PHASE_C,
-	PHASE_SIZE
+	PHASE_INDEX_SIZE,
+};
+
+// 三相电类型
+enum THREE_PHASE_TYPE{
+	PHASE_U = 0,
+	PHASE_I,
+	PHASE_TYPE_SIZE,
 };
 
 class Svgui : public QSvgWidget {
@@ -46,17 +53,13 @@ private:
 
 private:
 	QSvgRenderer *m_renderer;
-	QColor m_color[PHASE_SIZE];
-	int m_markY[PHASE_SIZE];
+	QColor m_color[PHASE_INDEX_SIZE];
+	int m_markY[PHASE_INDEX_SIZE];
+	int m_markXb[PHASE_TYPE_SIZE];
+	int m_markXe[PHASE_TYPE_SIZE];
 
 	int m_penWidthU;
 	int m_penWidthI;
-
-	int m_markUXb;
-	int m_markUXe;
-	int m_markIXb;
-	int m_markIXe;
-
 
 };
 

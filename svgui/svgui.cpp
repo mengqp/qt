@@ -51,7 +51,7 @@ void Svgui::paintEvent(QPaintEvent *)
 
 void Svgui::setColor(int index, QColor color)
 {
-    if (index >= PHASE_SIZE || index < 0) {
+    if (index >= PHASE_INDEX_SIZE || index < 0) {
         return;
     }
 
@@ -64,27 +64,27 @@ void Svgui::drawMark(QPainter *pPainter)
     int height = this->height();
     // printf("height=%d width=%d\n", height, width);
 
-    m_markUXb = width / 240 * 20;
-    m_markUXe = width / 240 * 40;
-    m_markIXb = width / 240 * 65;
-    m_markIXe = width / 240 * 85;
+    m_markXb[PHASE_U] = width / 240 * 20;
+    m_markXe[PHASE_U] = width / 240 * 40;
+    m_markXb[PHASE_I] = width / 240 * 65;
+    m_markXe[PHASE_I] = width / 240 * 85;
     m_markY[PHASE_A] = height / 480 * 30;
     m_markY[PHASE_B] = height / 480 * 65;
     m_markY[PHASE_C] = height / 480 * 100;
 
     QPen pen = pPainter->pen();
 
-	for (int i = 0; i < PHASE_SIZE; i++) {
+	for (int i = 0; i < PHASE_INDEX_SIZE; i++) {
 		pen.setColor(m_color[i]);
 
 		// U
 		pen.setWidth(m_penWidthU);
 		pPainter->setPen(pen);
-		pPainter->drawLine(m_markUXb, m_markY[i], m_markUXe, m_markY[i]);
+		pPainter->drawLine(m_markXb[PHASE_U], m_markY[i], m_markXe[PHASE_U], m_markY[i]);
 
 		// I
 		pen.setWidth(m_penWidthI);
 		pPainter->setPen(pen);
-		pPainter->drawLine(m_markIXb, m_markY[i], m_markIXe, m_markY[i]);
+		pPainter->drawLine(m_markXb[PHASE_I], m_markY[i], m_markXe[PHASE_I], m_markY[i]);
     }
 }
