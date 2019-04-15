@@ -14,11 +14,12 @@
 #include <QSvgRenderer>
 #include <QColor>
 
-enum COLORABC{
-	COLOR_A = 0,
-	COLOR_B,
-	COLOR_C,
-	COLOR_SIZE
+// 三相电
+enum THREE_PHASE{
+	PHASE_A = 0,
+	PHASE_B,
+	PHASE_C,
+	PHASE_SIZE
 };
 
 class Svgui : public QSvgWidget {
@@ -35,13 +36,26 @@ private:
 public:
 	void paintEvent( QPaintEvent *);
 
-private:
+public:
 	// 设置ABC 三相顔色
 	void setColor( int index, QColor color );
 
 private:
+	// 画提示的ABC 标注说明
+	void drawMark( QPainter *pPainter );
+
+private:
 	QSvgRenderer *m_renderer;
-	QColor m_color[COLOR_SIZE];
+	QColor m_color[PHASE_SIZE];
+	int m_markY[PHASE_SIZE];
+
+	int m_penWidthU;
+	int m_penWidthI;
+
+	int m_markUXb;
+	int m_markUXe;
+	int m_markIXb;
+	int m_markIXe;
 
 
 };
