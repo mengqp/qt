@@ -1,0 +1,12 @@
+#+TITLE: 画一个简单的柱形图
+#+STYLE: <link rel="stylesheet" type="text/css" href="" />
+#+OPTIONS: ^:nil
+#+AUTHOR: mengqp
+
+* Table of Contents                                         :TOC_4_org:noexport:
+- [[概述][概述]]
+
+* 概述
+  用的是网上的QCustomPlot. 网址是https://www.qcustomplot.com/
+
+
