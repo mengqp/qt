@@ -39,7 +39,7 @@ else
 	CONFIG="CONFIG+=release"
 fi
 
-$QMAKE -project -Wall  -o  histogram.pro -after "TARGET=histogram" $CONFIG  "OBJECTS_DIR = build/obj" "MOC_DIR = build/moc"  "QT += gui core svg"
+$QMAKE -project -Wall  -o  histogram.pro -after "TARGET=histogram" $CONFIG  "OBJECTS_DIR = build/obj" "MOC_DIR = build/moc"  "QT += gui core svg" " DEFINES += QCUSTOMPLOT_COMPILE_LIBRARY"
 $QMAKE -makefile histogram.pro   -o Makefile
 
 make
