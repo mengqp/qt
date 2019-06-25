@@ -110,11 +110,11 @@ Histogram::Histogram( QWidget *p)  : QWidget(p)
 	// 坐标系外框
     QLinearGradient plotGradient;
     plotGradient.setStart(0, 0);
-    plotGradient.setFinalStop(0, 350);
-    plotGradient.setColorAt(0, QColor(80, 80, 80));
-    plotGradient.setColorAt(1, QColor(50, 50, 50));
-    // plotGradient.setColorAt(0, Qt::red);
-    // plotGradient.setColorAt(1, Qt::red);
+    plotGradient.setFinalStop(0, 40);
+    // plotGradient.setColorAt(0, QColor(80, 80, 80));
+    // plotGradient.setColorAt(1, QColor(50, 50, 50));
+    plotGradient.setColorAt(0, Qt::red);
+    plotGradient.setColorAt(1, Qt::green);
     customPlot->setBackground(plotGradient);
 
 	// 坐标系内部背景色

@@ -1,0 +1,13 @@
+#+TITLE: 用QXmlStreamReader 和 QXmlStreamWriter 写一个测试函数
+#+STYLE: <link rel="stylesheet" type="text/css" href="" />
+#+OPTIONS: ^:nil
+#+AUTHOR: mengqp
+
+* Table of Contents                                         :TOC_4_org:noexport:
+- [[概述][概述]]
+
+* 概述
+  用QXmlstreamReader 解析一个xml字符串，实际应用时需要反复读取
+
+  用QXmlstreamWriter 写一个xml字符串，用于发送
+
