@@ -197,6 +197,14 @@ bool XmlStream::writeFile(QString filename)
         return false;
     }
     try {
+        QString dtd;
+        QXmlStreamWriter writer_dtd(&dtd);
+
+        writer_dtd.writeStartElement("dtd");
+        writer_dtd.writeCharacters("This is a Test dtd String!");
+        writer_dtd.writeEndElement();
+
+
         writer.setDevice(&file);
         writer.setAutoFormatting(true);
         //文档开始
@@ -209,7 +217,8 @@ bool XmlStream::writeFile(QString filename)
         writer.writeAttribute("id", "1_1");
         writer.writeCharacters("This is a Test String!");
         writer.writeEndElement();
-        writer.writeEndElement();
+		writer.writeDTD(dtd);
+		writer.writeEndElement();
 
         //文档结束
         m_writer.writeEndDocument();
@@ -222,6 +231,18 @@ bool XmlStream::writeFile(QString filename)
 bool XmlStream::writeString(QString *pStr)
 {
     pStr->clear();
+    QString dtd;
+    QXmlStreamWriter writer_dtd(&dtd);
+    //文档开始
+    writer_dtd.writeStartDocument();
+
+    writer_dtd.writeStartElement("dtd");
+    writer_dtd.writeCharacters("This is a Test dtd String!");
+    writer_dtd.writeEndElement();
+
+    //文档结束
+    writer_dtd.writeEndDocument();
+
     QXmlStreamWriter writer(pStr);
 
     writer.setAutoFormatting(true);
@@ -235,6 +256,8 @@ bool XmlStream::writeString(QString *pStr)
     writer.writeAttribute("id", "1_1");
     writer.writeCharacters("This is a Test String!");
     writer.writeEndElement();
+    writer.writeDTD(dtd);
+
     writer.writeEndElement();
 
     //文档结束

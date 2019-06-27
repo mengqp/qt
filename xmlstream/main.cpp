@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
 
 	XmlStream stream;
 	// stream.readFile( "/root/code/lang/qt/xmlstream/sample.xml" );
-	// stream.writeFile( "/root/code/lang/qt/xmlstream/test.xml" );
+	stream.writeFile( "/root/code/lang/qt/xmlstream/test.xml" );
 
 	// QFile f("/root/code/lang/qt/xmlstream/sample.xml");
 	// if (!f.open(QFile::ReadOnly | QFile::Text))
